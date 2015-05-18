@@ -99,7 +99,7 @@ umin(unsigned char a, unsigned char b)
 { return (a>b) ? b : a; }
 
 inline float 
-fmin(float a, float b) 
+fminDJVU(float a, float b) 
 { return (a>b) ? b : a; }
 
 
@@ -337,9 +337,9 @@ DjVuPalette::compute_palette(int maxcolors, int minboxsize)
           rsum += box.data[j].p[2] * w;
         }
       PColor &color = palette[ncolors++];
-      color.p[0] = (unsigned char) fmin(255, bsum/box.sum);
-      color.p[1] = (unsigned char) fmin(255, gsum/box.sum);
-      color.p[2] = (unsigned char) fmin(255, rsum/box.sum);
+	  color.p[0] = (unsigned char) fminDJVU(255, bsum / box.sum);
+	  color.p[1] = (unsigned char) fminDJVU(255, gsum / box.sum);
+	  color.p[2] = (unsigned char) fminDJVU(255, rsum / box.sum);
       color.p[3] = ( color.p[0]*BMUL + color.p[1]*GMUL + color.p[2]*RMUL) / SMUL;
     }
   }
