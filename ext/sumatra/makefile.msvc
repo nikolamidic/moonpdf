@@ -54,7 +54,7 @@ CFLAGSOPT = $(CFLAGSOPT) /Isrc/utils/msvc
 # We set the features uniformly to Windows 2000 or later.
 CFLAGS = $(CFLAGS) /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500"
 # Suppress warning C4800: forcing value to bool 'true' or 'false'
-CFLAGS = $(CFLAGS) /wd4800
+CFLAGS = $(CFLAGS) /wd4800 /wd4996
 
 !if "$(WITH_ANALYZE)"=="yes"
 CFLAGS = /analyze:WX- $(CFLAGS)
